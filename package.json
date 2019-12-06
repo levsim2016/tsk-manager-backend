@@ -1,0 +1,19 @@
+{
+  "name": "tsk-manager-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levsim2016/tsk-manager-backend.git"
+  },
+  "author": "Lev Simionenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/levsim2016/tsk-manager-backend/issues"
+  },
+  "homepage": "https://github.com/levsim2016/tsk-manager-backend#readme"
+}
