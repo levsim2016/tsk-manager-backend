@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { createTask } from '../business-logic/tasks/createTask';
-import { loadTasks } from '../business-logic/tasks/loadTasks';
+import { createTask } from '../../business-logic/tasks/createTask';
+import { loadTasks } from '../../business-logic/tasks/loadTasks';
 
 export const tasksRouter = Router();
 
