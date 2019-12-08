@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { MongoClient } from 'mongodb';
 
 import { apiRouter } from './api/apiRouter';
@@ -6,6 +7,7 @@ import { Database } from './datastore/Database';
 
 export const server: express.Application = express();
 
+server.use(cors());
 server.use(express.json());
 server.use('/api', apiRouter);
 
