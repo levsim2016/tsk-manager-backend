@@ -1,7 +1,8 @@
 import { ITask } from "../../interfaces/ITask";
 import { Database } from "../../datastore/Database";
+import { WriteOpResult } from "mongodb";
 
-export function createTask(newTask: ITask): void {
+export async function createTask(newTask: ITask): Promise<WriteOpResult> {
     const tasksCollection = Database.getCollection('tasks');
-    tasksCollection.insertOne(newTask);
+    return await tasksCollection.insertOne(newTask);
 };
