@@ -16,7 +16,8 @@ tasksRouter.post('/', async function (request, response) {
         await createTask(task);
 
         response.sendStatus(200);
-    } catch (e) {
+    } catch (exception) {
+        console.error(exception);
         response.sendStatus(400);
     }
 });
@@ -29,7 +30,8 @@ tasksRouter.put('/:id', async function (request, response) {
         await updateTaskStatus(taskId, isDone);
 
         response.sendStatus(200);
-    } catch (e) {
+    } catch (exception) {
+        console.error(exception);
         response.sendStatus(400);
     }
 });
