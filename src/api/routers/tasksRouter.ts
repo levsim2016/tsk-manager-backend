@@ -10,26 +10,26 @@ tasksRouter.get('/', async function (request, response) {
     response.json(await loadTasks());
 });
 
-tasksRouter.post('/', function (request, response) {
+tasksRouter.post('/', async function (request, response) {
     try {
         const task: ITask = request.body;
-        createTask(task);
+        await createTask(task);
+
+        response.sendStatus(200);
     } catch (e) {
         response.sendStatus(400);
-    } finally {
-        response.sendStatus(200);
     }
 });
 
-tasksRouter.put('/', function (request, response) {
+tasksRouter.put('/:id', async function (request, response) {
     try {
-        const taskId = request.query.id;
+        const taskId = request.params.id;
         const isDone = request.body.isDone;
 
-        updateTaskStatus(taskId, isDone);
+        await updateTaskStatus(taskId, isDone);
+
+        response.sendStatus(200);
     } catch (e) {
         response.sendStatus(400);
-    } finally {
-        response.sendStatus(200);
     }
 });
