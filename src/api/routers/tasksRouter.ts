@@ -3,6 +3,7 @@ import { createTask } from '../../business-logic/tasks/createTask';
 import { loadTasks } from '../../business-logic/tasks/loadTasks';
 import { ITask } from '../../interfaces/ITask';
 import { updateTaskStatus } from '../../business-logic/tasks/updateTaskStatus';
+import { deleteTask } from '../../business-logic/tasks/deleteTask';
 
 export const tasksRouter = Router();
 
@@ -28,6 +29,19 @@ tasksRouter.put('/:id', async function (request, response) {
         const isDone = request.body.isDone;
 
         await updateTaskStatus(taskId, isDone);
+
+        response.sendStatus(200);
+    } catch (exception) {
+        console.error(exception);
+        response.sendStatus(400);
+    }
+});
+
+tasksRouter.delete('/:id', async function (request, response) {
+    try {
+        const taskId = request.params.id;
+
+        await deleteTask(taskId);
 
         response.sendStatus(200);
     } catch (exception) {
